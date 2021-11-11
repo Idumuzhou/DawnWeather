@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dawn.weathe">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +12,50 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DawnWeathe">
+        <activity
+            android:name=".study.ui.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.ui.RecyclerViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.lifecycle.DialogActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <!--
+<activity
+            android:name=".study.lifecycle.LifeCycleActivity"
+            android:launchMode="singleTop"
+            android:exported="false" />
+        -->
+        <activity
+            android:name=".study.lifecycle.LifeCycleActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".study.ui.ThreeActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="THREE_CATEGORY" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".study.ui.SecondActivity"
+            android:exported="false"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="MY_CATEGORY" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".study.ui.KotlinStudyActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
