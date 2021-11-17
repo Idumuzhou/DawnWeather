@@ -1,17 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dawn.weathe">
+    package="com.dawn.weather">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 开机启动的权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
+        android:name=".DawnApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DawnWeathe">
+        android:theme="@style/Theme.DawnWeather">
+        <activity
+            android:name=".study.network.RetrofitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.network.NetWorkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.network.WebViewActivity"
+            android:exported="false" /> <!-- 服务 -->
+        <service
+            android:name=".study.service.MyService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".study.service.MyIntentService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".study.service.ServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.service.ThreadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.media.PlayVideoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.media.PlayAudioActivity"
+            android:exported="false" /> <!-- 文件存储 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.dawn.weather.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".study.media.CameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.media.OpenNotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.media.NotificationActivity"
+            android:exported="false" /> <!-- Provider -->
+        <provider
+            android:name=".study.provider.DatabaseProvider"
+            android:authorities="com.dawn.weather.provider"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".study.provider.ContentProviderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.storage.SQLiteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.storage.StorageActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".study.broadcast.AnotherBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.dawn.weather.study.broadcast.MyBroadcastReceiver" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".study.broadcast.MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="100">
+                <action android:name="com.dawn.weather.study.broadcast.MyBroadcastReceiver" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".study.broadcast.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".study.broadcast.BroadcastReceiverActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.fragment.news.NewsContentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.fragment.news.FragmentNewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.fragment.FragmentActivity"
+            android:exported="false" />
         <activity
             android:name=".study.ui.ChatActivity"
             android:exported="false" />

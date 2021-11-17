@@ -1,50 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".study.ui.KotlinStudyActivity">
 
-    <LinearLayout
+    <com.dawn.weather.study.widget.TitleLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        tools:context=".study.ui.KotlinStudyActivity">
 
-        <com.dawn.weathe.study.widget.TitleLayout
-            android:id="@+id/title_layout"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_second"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="12dp"
-            android:text="SecondActivity"
-            android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/btn_lifecycle"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="12dp"
-            android:text="生命周期" />
+            <Button
+                android:id="@+id/btn_second"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="SecondActivity"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/btn_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="12dp"
-            android:text="Recyclerview"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_lifecycle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="生命周期" />
 
-        <Button
-            android:id="@+id/btn_chat"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="12dp"
-            android:text="聊天"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="Recyclerview"
+                android:textAllCaps="false" />
 
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+            <Button
+                android:id="@+id/btn_chat"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="聊天"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="Fragment"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_news"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="Fragment News"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_broadcast_receiver"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="BroadcastReceiver"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_storage"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="数据存储&amp;&amp;持久化"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_sqlLit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="数据库SQLite"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_content_provider"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="ContentProvider"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_notification"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="Notification"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_camera"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="相机 相册"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_play_audio"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="音频"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_play_video"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="视频"
+                android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_thread"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="Thread"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_service"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="Service"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_web_view"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="WebView"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_new_work"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="网络"
+                android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_retrofit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="Retrofit"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
