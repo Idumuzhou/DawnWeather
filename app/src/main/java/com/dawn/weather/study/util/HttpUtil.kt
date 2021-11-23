@@ -7,6 +7,9 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 import kotlin.concurrent.thread
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 /**
  *  @author: LXL
@@ -84,16 +87,34 @@ object HttpUtil {
     }
 
     /**
-        HttpUtil.sendOkHttpRequest(address, object : Callback {
-        override fun onResponse(call: Call, response: Response) {
-        // 得到服务器返回的具体内容
-        val responseData = response.body?.string()
+     * 协程简化上面版本
+     */
+    suspend fun sendHttpRequest3(address: String): String {
+        return suspendCoroutine { continuation ->
+            HttpUtil.sendHttpRequest2(address, object : HttpCallbackListener {
+                override fun onFinish(response: String) {
+                    continuation.resume(response)
+                }
+
+                override fun onError(e: Exception) {
+                    continuation.resumeWithException(e)
+                }
+            })
         }
 
-        override fun onFailure(call: Call, e: IOException) {
-        // 在这里对异常情况进行处理
-        }
-        })
+    }
+
+    /**
+    HttpUtil.sendOkHttpRequest(address, object : Callback {
+    override fun onResponse(call: Call, response: Response) {
+    // 得到服务器返回的具体内容
+    val responseData = response.body?.string()
+    }
+
+    override fun onFailure(call: Call, e: IOException) {
+    // 在这里对异常情况进行处理
+    }
+    })
      */
     fun sendOkHttpRequest(address: String, callback: okhttp3.Callback) {
         val client = OkHttpClient()

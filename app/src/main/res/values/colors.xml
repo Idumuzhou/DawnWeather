@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--refresh color-->
+    <color name="refresh_color_1">#F36F6F</color>
+    <color name="refresh_color_2">#447EF1</color>
+    <color name="refresh_color_3">#FBDA5C</color>
+    <color name="refresh_color_4">#9E0FEC</color>
 </resources>

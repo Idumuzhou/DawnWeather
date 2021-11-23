@@ -3,13 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".study.ui.KotlinStudyActivity">
 
     <com.dawn.weather.study.widget.TitleLayout
         android:id="@+id/title_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:title="Kotlin Study"
+        app:is_show_edit_icon="true"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -170,7 +173,50 @@
                 android:layout_margin="4dp"
                 android:text="Retrofit"
                 android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_design"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="Material Design"
+                android:textAllCaps="false" />
 
+            <Button
+                android:id="@+id/btn_view_model"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="ViewModel"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_lifecycles"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="Lifecycles"
+                android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_liveData"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="LiveData"
+                android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_room"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="Room"
+                android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_work_manager"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:text="WorkManager"
+                android:textAllCaps="false" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

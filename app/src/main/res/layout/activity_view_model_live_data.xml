@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".study.jetpack.livedata.LiveDataViewModelActivity">
+
+    <com.dawn.weather.study.widget.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="LiveData"/>
+
+    <TextView
+        android:id="@+id/infoText_liveData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="32sp"
+        tools:text="1"/>
+
+    <Button
+        android:id="@+id/plusOneBtn_liveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAllCaps="false"
+        android:layout_margin="12dp"
+        android:text="Plus One"/>
+
+    <Button
+        android:id="@+id/clearBtn_liveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAllCaps="false"
+        android:layout_margin="12dp"
+        android:text="Clear"/>
+
+    <Button
+        android:id="@+id/getUserBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAllCaps="false"
+        android:layout_margin="12dp"
+        android:text="Get User"/>
+
+
+</LinearLayout>

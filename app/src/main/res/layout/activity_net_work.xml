@@ -5,9 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".study.network.NetWorkActivity">
+    <com.dawn.weather.study.widget.TitleLayout
+        android:id="@+id/net_work_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="网络"/>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/net_work_title"
+        app:layout_constraintBottom_toBottomOf="parent">
         <TextView
             android:id="@+id/tv_network_content"
             android:layout_width="wrap_content"

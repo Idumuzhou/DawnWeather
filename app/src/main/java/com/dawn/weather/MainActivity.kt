@@ -10,10 +10,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        /*
+        *跳转到Kotlin Study 模块
         //val btnHello = findViewById<Button>(R.id.btn_hello)
         val btnHello: Button = findViewById(R.id.btn_hello)
         btnHello.setOnClickListener {
             startActivity(Intent(this, KotlinStudyActivity::class.java))
-        }
+        }*/
+
+
     }
 }

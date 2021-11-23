@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><!--NavigationView Menu-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--checkableBehavior指定为single表示组中的所有菜单项只能单选。-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navCall"
+            android:icon="@drawable/ic_baseline_call_24"
+            android:title="Call" />
+        <item
+            android:id="@+id/navLocation"
+            android:icon="@drawable/ic_baseline_location_on_24"
+            android:title="Location" />
+        <item
+            android:id="@+id/navMail"
+            android:icon="@drawable/ic_baseline_mail_24"
+            android:title="Mail" />
+        <item
+            android:id="@+id/navColor"
+            android:icon="@drawable/ic_baseline_color_lens_24"
+            android:title="Color" />
+    </group>
+</menu>

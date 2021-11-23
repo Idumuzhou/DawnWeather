@@ -34,7 +34,7 @@ import kotlin.concurrent.thread
 class NetWorkActivity : AppCompatActivity() {
     companion object {
         private const val TAG = "NetWorkActivity"
-        private const val url = "https://www.baidu.com"
+        private const val baiduUrl = "https://www.baidu.com"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,13 +50,13 @@ class NetWorkActivity : AppCompatActivity() {
          * 没有封装线程
          */
         thread {
-            Logger.e("没有封装线程-->${HttpUtil.sendHttpRequest(url)}")
+            Logger.e("没有封装线程-->${HttpUtil.sendHttpRequest(baiduUrl)}")
         }
 
         /**
          * 线程封装 接口回调
          */
-        HttpUtil.sendHttpRequest2(url,object : HttpCallbackListener{
+        HttpUtil.sendHttpRequest2(baiduUrl,object : HttpCallbackListener{
             override fun onFinish(response: String) {
                 Logger.e("线程封装 接口回调-->$response")
             }
@@ -69,7 +69,7 @@ class NetWorkActivity : AppCompatActivity() {
         /**
          * OkHttp 封装
          */
-        HttpUtil.sendOkHttpRequest(url,object : Callback{
+        HttpUtil.sendOkHttpRequest(baiduUrl,object : Callback{
             override fun onFailure(call: Call, e: IOException) {
 
             }
@@ -79,6 +79,18 @@ class NetWorkActivity : AppCompatActivity() {
             }
 
         })
+
+
+    }
+
+    suspend fun getBaidu(){
+        try {
+            val response =  HttpUtil.sendHttpRequest3(baiduUrl)
+            // 对服务器响应的数据进行处理
+
+        }catch (e:Exception){
+            // 对异常情况进行处理
+        }
     }
 
     /**
@@ -89,7 +101,7 @@ class NetWorkActivity : AppCompatActivity() {
             try {
                 val client = OkHttpClient()
                 val request = Request.Builder()
-                    .url(url)
+                    .url(baiduUrl)
                     .build()
                 val response = client.newCall(request).execute()
                 val responseData = response.body?.string()
@@ -113,7 +125,7 @@ class NetWorkActivity : AppCompatActivity() {
             var connection: HttpURLConnection? = null
             try {
                 val response = StringBuilder()
-                val url = URL(url)
+                val url = URL(baiduUrl)
                 connection = url.openConnection() as HttpsURLConnection
                 connection = connection.apply {
                     requestMethod = "GET"  //GET && POST

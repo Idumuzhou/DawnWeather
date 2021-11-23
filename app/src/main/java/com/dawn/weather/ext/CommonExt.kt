@@ -1,6 +1,7 @@
 package com.dawn.weather.ext
 
 import android.content.Context
+import android.content.res.Configuration
 import android.util.Log
 import android.widget.Toast
 
@@ -16,6 +17,14 @@ fun toastShort(context: Context, msg: CharSequence) {
 
 fun toastLong(context: Context, msg: CharSequence) {
     Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+}
+
+fun String.showToast(context: Context, duration: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(context, this, duration).show()
+}
+
+fun Int.showToast(context: Context, duration: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(context, this, duration).show()
 }
 
 fun logE( tag:String,msg : String){
@@ -36,4 +45,13 @@ fun logI( tag:String,msg : String){
 fun logD( tag:String,msg : String){
     Log.d("=","==================================")
     Log.d(tag,msg)
+}
+
+/**
+ * 判断当前系统是否是深色主题
+ */
+fun isDarkTheme(context: Context): Boolean {
+    val flag = context.resources.configuration.uiMode and
+            Configuration.UI_MODE_NIGHT_MASK
+    return flag == Configuration.UI_MODE_NIGHT_YES
 }

@@ -1,17 +1,23 @@
 package com.dawn.weather.study.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.dawn.weather.R
 import com.dawn.weather.ext.toastLong
 import com.dawn.weather.ext.toastShort
 import com.dawn.weather.study.broadcast.BroadcastReceiverActivity
+import com.dawn.weather.study.design.MaterialDesignActivity
 import com.dawn.weather.study.fragment.FragmentActivity
 import com.dawn.weather.study.fragment.news.FragmentNewsActivity
+import com.dawn.weather.study.jetpack.lifecycles.LifecyclesActivity
+import com.dawn.weather.study.jetpack.livedata.LiveDataViewModelActivity
+import com.dawn.weather.study.jetpack.room.RoomSqlActivity
+import com.dawn.weather.study.jetpack.viewmodel.ViewModelActivity
+import com.dawn.weather.study.jetpack.workmanager.WorkManagerActivity
 import com.dawn.weather.study.lifecycle.LifeCycleActivity
 import com.dawn.weather.study.media.CameraActivity
 import com.dawn.weather.study.media.NotificationActivity
@@ -21,6 +27,8 @@ import com.dawn.weather.study.network.NetWorkActivity
 import com.dawn.weather.study.network.RetrofitActivity
 import com.dawn.weather.study.network.WebViewActivity
 import com.dawn.weather.study.provider.ContentProviderActivity
+import com.dawn.weather.study.recyclerview.ChatActivity
+import com.dawn.weather.study.recyclerview.RecyclerViewActivity
 import com.dawn.weather.study.service.ServiceActivity
 import com.dawn.weather.study.service.ThreadActivity
 import com.dawn.weather.study.storage.SQLiteActivity
@@ -38,19 +46,19 @@ class KotlinStudyActivity : AppCompatActivity() {
             startActivity(intent)
         }
         findViewById<Button>(R.id.btn_lifecycle).setOnClickListener {
-            startActivity(Intent(this,LifeCycleActivity::class.java))
+            startActivity(Intent(this, LifeCycleActivity::class.java))
         }
         findViewById<Button>(R.id.btn_recyclerview).setOnClickListener {
-            startActivity(Intent(this,RecyclerViewActivity::class.java))
+            startActivity(Intent(this, RecyclerViewActivity::class.java))
         }
         findViewById<Button>(R.id.btn_chat).setOnClickListener {
-            startActivity(Intent(this,ChatActivity::class.java))
+            startActivity(Intent(this, ChatActivity::class.java))
         }
         findViewById<Button>(R.id.btn_fragment).setOnClickListener {
-            startActivity(Intent(this,FragmentActivity::class.java))
+            startActivity(Intent(this, FragmentActivity::class.java))
         }
         findViewById<Button>(R.id.btn_news).setOnClickListener {
-            startActivity(Intent(this,FragmentNewsActivity::class.java))
+            startActivity(Intent(this, FragmentNewsActivity::class.java))
         }
         findViewById<Button>(R.id.btn_broadcast_receiver).setOnClickListener {
             startActivity(Intent(this, BroadcastReceiverActivity::class.java))
@@ -91,20 +99,38 @@ class KotlinStudyActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_retrofit).setOnClickListener {
             startActivity(Intent(this, RetrofitActivity::class.java))
         }
+        findViewById<Button>(R.id.btn_design).setOnClickListener {
+            startActivity(Intent(this, MaterialDesignActivity::class.java))
+        }
+        findViewById<Button>(R.id.btn_view_model).setOnClickListener {
+            startActivity(Intent(this, ViewModelActivity::class.java))
+        }
+        findViewById<Button>(R.id.btn_lifecycles).setOnClickListener {
+            startActivity(Intent(this, LifecyclesActivity::class.java))
+        }
+        findViewById<Button>(R.id.btn_liveData).setOnClickListener {
+            startActivity(Intent(this, LiveDataViewModelActivity::class.java))
+        }
+        findViewById<Button>(R.id.btn_room).setOnClickListener {
+            startActivity(Intent(this, RoomSqlActivity::class.java))
+        }
+        findViewById<Button>(R.id.btn_work_manager).setOnClickListener {
+            startActivity(Intent(this, WorkManagerActivity::class.java))
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.kotlin_study,menu)
+        menuInflater.inflate(R.menu.kotlin_study, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.add_item ->{
-                toastShort(this,item.title)
+        when (item.itemId) {
+            R.id.add_item -> {
+                toastShort(this, item.title)
             }
-            R.id.remove_item ->{
-                toastLong(this,item.title)
+            R.id.remove_item -> {
+                toastLong(this, item.title)
             }
         }
         return super.onOptionsItemSelected(item)

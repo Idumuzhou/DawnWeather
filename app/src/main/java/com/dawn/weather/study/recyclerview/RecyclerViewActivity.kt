@@ -1,4 +1,4 @@
-package com.dawn.weather.study.ui
+package com.dawn.weather.study.recyclerview
 
 import android.os.Bundle
 import android.view.LayoutInflater

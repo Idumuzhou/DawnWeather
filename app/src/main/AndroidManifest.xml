@@ -20,6 +20,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DawnWeather">
         <activity
+            android:name=".ui.weather.WeatherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.jetpack.workmanager.WorkManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.jetpack.room.RoomSqlActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.jetpack.livedata.LiveDataViewModelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.jetpack.lifecycles.LifecyclesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.jetpack.viewmodel.ViewModelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".study.design.FruitDetailActivity"
+            android:exported="false"
+            android:theme="@style/FruitDetailActivityTheme" />
+        <activity
+            android:name=".study.design.MaterialDesignActivity"
+            android:exported="false"
+            android:label="HelloWorld" />
+        <activity
             android:name=".study.network.RetrofitActivity"
             android:exported="false" />
         <activity
@@ -142,7 +168,7 @@
             android:exported="false"
             android:launchMode="singleTask" />
         <activity
-            android:name=".study.ui.ThreeActivity"
+            android:name=".study.lifecycle.ThreeActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="ACTION_START" />
@@ -152,7 +178,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".study.ui.SecondActivity"
+            android:name=".study.lifecycle.SecondActivity"
             android:exported="false"
             android:launchMode="singleInstance">
             <intent-filter>

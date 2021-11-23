@@ -6,7 +6,6 @@ import android.widget.Button
 import com.dawn.weather.R
 import com.dawn.weather.ext.logD
 import com.dawn.weather.ext.logE
-import com.dawn.weather.study.ui.SecondActivity
 import com.dawn.weather.study.base.BaseActivity
 
 class LifeCycleActivity : BaseActivity() {

@@ -1,4 +1,4 @@
-package com.dawn.weather.study.ui
+package com.dawn.weather.study.lifecycle
 
 import android.content.Context
 import android.content.Intent
@@ -10,7 +10,6 @@ import com.dawn.weather.R
 import com.dawn.weather.ext.logD
 import com.dawn.weather.ext.logE
 import com.dawn.weather.ext.toastShort
-import com.dawn.weather.study.lifecycle.LifeCycleActivity
 
 class SecondActivity : AppCompatActivity() {
     private val TAG = "SecondActivity"
@@ -49,6 +48,22 @@ class SecondActivity : AppCompatActivity() {
             //显示跳转
             val intent = Intent(this, ThreeActivity::class.java)
             intent.putExtra("Data", "hello Three")
+            /**
+             * 序列化数据
+             */
+            val personS = PersonS()
+            personS.name = "Dawn"
+            personS.age = 18
+            intent.putExtra("PersonS",personS)
+
+            val personP = PersonP()
+            personP.name = "Dawn_P"
+            personP.age = 26
+            intent.putExtra("PersonP",personP)
+
+            val personJ = PersonJ(name = "Dawn_J", age = 28)
+            intent.putExtra("PersonJ",personJ)
+
             startActivityForResult(intent, 1)
         }
 
