@@ -35,6 +35,15 @@
             android:textSize="22sp"
             tools:text="地区名字"/>
 
+
+        <ImageView
+            android:id="@+id/ivKotlinStudy"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/kotlin"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="right|center_vertical" />
     </FrameLayout>
 
     <LinearLayout

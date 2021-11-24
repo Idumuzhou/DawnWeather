@@ -1,6 +1,7 @@
 package com.dawn.weather.ui.weather
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,7 @@ import com.dawn.weather.databinding.ActivityWeatherBinding
 import com.dawn.weather.ext.toastShort
 import com.dawn.weather.logic.model.Weather
 import com.dawn.weather.logic.model.getSky
+import com.dawn.weather.study.ui.KotlinStudyActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -85,7 +87,9 @@ class WeatherActivity : AppCompatActivity() {
                 manager.hideSoftInputFromWindow(drawerView.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
             }
         })
-
+        binding.now.ivKotlinStudy.setOnClickListener {
+            startActivity(Intent(this, KotlinStudyActivity::class.java))
+        }
     }
 
     fun refreshWeather() {
