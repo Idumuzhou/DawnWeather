@@ -1,11 +1,16 @@
 package com.dawn.weather.ui.weather
 
+import android.content.Context
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dawn.weather.R
@@ -20,11 +25,17 @@ import java.util.*
  * 天气Activity
  */
 class WeatherActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityWeatherBinding
+    lateinit var binding: ActivityWeatherBinding
     val viewModel by lazy { ViewModelProvider(this).get(WeatherViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val decorView = window.decorView
+        decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        window.statusBarColor = Color.TRANSPARENT
+
+
         binding = ActivityWeatherBinding.inflate(layoutInflater)
         val rootView: View = binding.root
         setContentView(rootView)
@@ -45,9 +56,41 @@ class WeatherActivity : AppCompatActivity() {
                 toastShort(this, "无法成功获取天气信息")
                 result.exceptionOrNull()?.printStackTrace()
             }
+            binding.swipeRefreshWeather.isRefreshing = false
         })
-        viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
+        binding.swipeRefreshWeather.setProgressViewOffset(true, 0, 200)
+        binding.swipeRefreshWeather.setColorSchemeResources(
+            R.color.refresh_color_1,
+            R.color.refresh_color_2,
+            R.color.refresh_color_3
+        )
+        refreshWeather()
+        binding.swipeRefreshWeather.setOnRefreshListener {
+            refreshWeather()
+        }
 
+
+        binding.now.navBtn.setOnClickListener {
+            binding.drawerLayout.openDrawer(GravityCompat.START)
+        }
+        binding.drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
+            override fun onDrawerStateChanged(newState: Int) {}
+
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
+
+            override fun onDrawerOpened(drawerView: View) {}
+
+            override fun onDrawerClosed(drawerView: View) {
+                val manager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                manager.hideSoftInputFromWindow(drawerView.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+            }
+        })
+
+    }
+
+    fun refreshWeather() {
+        viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
+        binding.swipeRefreshWeather.isRefreshing = true
     }
 
     private fun showWeatherInfo(weather: Weather) {

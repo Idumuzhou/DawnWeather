@@ -1,5 +1,6 @@
 package com.dawn.weather.ui.place
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -15,9 +16,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dawn.weather.MainActivity
 import com.dawn.weather.R
 import com.dawn.weather.ext.toastShort
-import com.dawn.weather.ui.adapter.PlaceAdapter
+import com.dawn.weather.ui.weather.WeatherActivity
 
 /**
  *  @author: LXL
@@ -27,6 +29,7 @@ import com.dawn.weather.ui.adapter.PlaceAdapter
 class PlaceFragment : Fragment() {
 
     val viewModel by lazy { ViewModelProvider(this).get(PlaceViewModel::class.java) }
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var searchPlaceEdit: EditText
     private lateinit var bgImageView: ImageView
@@ -42,6 +45,20 @@ class PlaceFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        //记录上次点击的城市 直接跳转
+        if (activity is MainActivity && viewModel.isPlaceSaved()){
+            val place = viewModel.getSavedPlace()
+            val intent = Intent(context, WeatherActivity::class.java).apply {
+                putExtra("location_lng", place.location.lng)
+                putExtra("location_lat", place.location.lat)
+                putExtra("place_name", place.name)
+            }
+            startActivity(intent)
+            activity?.finish()
+            return
+        }
+
         val layoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = layoutManager
         adapter = PlaceAdapter(this, viewModel.placeList)

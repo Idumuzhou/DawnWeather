@@ -20,7 +20,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="15dp"
             android:layout_gravity="center_vertical"
-            android:background="@mipmap/ic_home" />
+            android:background="@mipmap/ic_home"/>
 
         <TextView
             android:id="@+id/placeName"

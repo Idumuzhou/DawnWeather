@@ -12,6 +12,14 @@ import com.dawn.weather.logic.model.Place
  *  @date: 2021/11/23 14:05
  */
 class PlaceViewModel : ViewModel() {
+
+    fun savePlace(place: Place) = Repository.savePlace(place)
+
+    fun getSavedPlace() = Repository.getSavedPlace()
+
+    fun isPlaceSaved() = Repository.isPlaceSaved()
+
+
     private val searchLiveData = MutableLiveData<String>()
 
     val placeList = ArrayList<Place>()

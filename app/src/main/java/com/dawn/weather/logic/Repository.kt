@@ -1,6 +1,8 @@
 package com.dawn.weather.logic
 
 import androidx.lifecycle.liveData
+import com.dawn.weather.logic.dao.PlaceDao
+import com.dawn.weather.logic.model.Place
 import com.dawn.weather.logic.model.Weather
 import com.dawn.weather.logic.network.DawnWeatherNetwork
 import kotlinx.coroutines.Dispatchers
@@ -14,6 +16,13 @@ import kotlin.coroutines.CoroutineContext
  *  @date: 2021/11/23 13:44
  */
 object Repository {
+
+    fun savePlace(place: Place) = PlaceDao.savePlace(place)
+
+    fun getSavedPlace() = PlaceDao.getSavedPlace()
+
+    fun isPlaceSaved() = PlaceDao.isPlaceSaved()
+
 
     fun searchPlaces(query: String) = fire(Dispatchers.IO) {
         val placeResponse = DawnWeatherNetwork.searchPlaces(query)
