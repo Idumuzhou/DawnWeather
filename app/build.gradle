@@ -70,6 +70,8 @@ android {
         //livedata 扩展
         implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
 
+        implementation 'com.github.Idumuzhou:ShapeWidget:1.0.0'
+
     }
     kotlinOptions {
         jvmTarget = '1.8'

@@ -20,20 +20,22 @@
         android:background="@color/purple_700"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <com.laoluo.shapewidget.RadiusEditText
         android:id="@+id/searchPlaceEdit"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:background="@drawable/search_bg"
         android:hint="输入地址"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:imeOptions="actionSearch"
         android:inputType="text"
+        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="@id/actionBarLayout"
-        app:layout_constraintTop_toTopOf="@id/actionBarLayout" />
+        app:layout_constraintTop_toTopOf="@id/actionBarLayout"
+        app:rv_radius="12dp"
+        app:rv_backgroundColor="@color/white"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
