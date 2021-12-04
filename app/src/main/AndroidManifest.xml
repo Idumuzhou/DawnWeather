@@ -148,10 +148,10 @@
             android:name=".study.fragment.FragmentActivity"
             android:exported="false" />
         <activity
-            android:name=".study.ui.ChatActivity"
+            android:name=".study.recyclerview.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".study.ui.RecyclerViewActivity"
+            android:name=".study.recyclerview.RecyclerViewActivity"
             android:exported="false" />
         <activity
             android:name=".study.lifecycle.DialogActivity"

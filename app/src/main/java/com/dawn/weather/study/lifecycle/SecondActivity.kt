@@ -27,8 +27,8 @@ class SecondActivity : AppCompatActivity() {
             context.startActivity(intent)*/
             //apply 函数简化
             val intent = Intent(context, SecondActivity::class.java).apply {
-                putExtra("param1",data1)
-                putExtra("param2",data2)
+                putExtra("param1", data1)
+                putExtra("param2", data2)
             }
             context.startActivity(intent)
         }
@@ -38,6 +38,8 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+        logE(TAG, "onCreate()")
+
         logD(TAG, "当前Activity的 taskId:$taskId")
         title = "Second"
         findViewById<TextView>(R.id.tv_three).setOnClickListener {
@@ -54,15 +56,15 @@ class SecondActivity : AppCompatActivity() {
             val personS = PersonS()
             personS.name = "Dawn"
             personS.age = 18
-            intent.putExtra("PersonS",personS)
+            intent.putExtra("PersonS", personS)
 
             val personP = PersonP()
             personP.name = "Dawn_P"
             personP.age = 26
-            intent.putExtra("PersonP",personP)
+            intent.putExtra("PersonP", personP)
 
             val personJ = PersonJ(name = "Dawn_J", age = 28)
-            intent.putExtra("PersonJ",personJ)
+            intent.putExtra("PersonJ", personJ)
 
             startActivityForResult(intent, 1)
         }
@@ -80,6 +82,30 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        logE(TAG, "onStart()")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        logE(TAG, "onRestart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        logE(TAG, "onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        logE(TAG, "onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        logE(TAG, "onStop()")
+    }
 
     override fun onDestroy() {
         super.onDestroy()

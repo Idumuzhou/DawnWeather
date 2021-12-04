@@ -20,6 +20,7 @@ class LifeCycleActivity : BaseActivity() {
         findViewById<Button>(R.id.btn_normal_second).setOnClickListener {
             startActivity(Intent(this, SecondActivity::class.java))
             //startActivity(Intent(this,NormalActivity::class.java))
+            //SecondActivity.actionStart(this,"Data1","Data2")
         }
         findViewById<Button>(R.id.btn_dialog_activity).setOnClickListener {
             startActivity(Intent(this,DialogActivity::class.java))
