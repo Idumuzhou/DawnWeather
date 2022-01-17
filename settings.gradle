@@ -9,3 +9,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DawnWeathe"
 include ':app'
+include ':dlibrary'
